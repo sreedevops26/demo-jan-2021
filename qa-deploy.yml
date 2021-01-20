@@ -1,0 +1,6 @@
+---
+ - hosts: qa
+   tasks:
+   - name: push newly created image into registry
+     raw: docker pull sreedevops26/demodevops:1.0
+
