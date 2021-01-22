@@ -1,6 +1,15 @@
 ---
  - hosts: qa
    tasks:
-   - name: push newly created image into registry
+   - name: pull newly created image into qa env
      raw: docker pull sreedevops26/demodevops:1.0
+
+   - name: copy compose file into qa instance
+     copy: src=/var/lib/jenkins/workspace/cloudtech21-demo/demo.yml dest=/root
+
+   - name: bringdown compose file if already container is running
+     raw: docker-compose -f /root/demo.yml down
+
+   - name: bringup application
+     raw: docker-compose -f /root/demo.yml up -d
 

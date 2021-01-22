@@ -1,0 +1,7 @@
+version: '2'
+
+services:
+  apache:
+    image: 'reedevops26/demodevops:1.0'
+    ports:
+      - '80:80'
