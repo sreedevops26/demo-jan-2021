@@ -1,5 +1,5 @@
 FROM ubuntu
-ARG DEBIAN_FRONTEND=noninteractive
+#ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -y
 RUN apt-get install nginx -y
 #RUN systemctl enable nginx
