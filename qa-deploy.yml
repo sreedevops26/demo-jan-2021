@@ -15,7 +15,7 @@
 
    - name: pause 1 minute to bringup webapp container
      pause:
-       minutes: 1
+       seconds: : 10
    
    #- name: start nginx service inside container
    #  shell: docker exec -it webapp /bin/bash -c "service nginx start" 
