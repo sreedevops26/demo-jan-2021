@@ -27,7 +27,7 @@ withDockerRegistry([credentialsId: 'docker-creds',  url: 'https://index.docker.i
 }
 }
 }
-/*stage('deploy app on qa')
+stage('deploy app on qa')
 {
 steps
 {
@@ -40,7 +40,7 @@ ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, i
 }
 }
 }
-stage('deploy app on prod')
+/*stage('deploy app on prod')
 {
 steps
 {
