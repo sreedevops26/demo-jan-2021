@@ -1,0 +1,24 @@
+---
+ - hosts: prod 
+   tasks:
+   - name: pull newly created image into prod env
+     raw: docker pull sreedevops26/demodevops:1.0
+
+   - name: copy compose file into prod instance
+     copy: src=/var/lib/jenkins/workspace/cloudtech21-demo/demo.yml dest=/root
+
+   - name: bringdown compose file if already container is running
+     raw: docker-compose -f /root/demo.yml down
+     ignore_errors: true
+
+   - name: bringup application
+     raw: docker-compose -f /root/demo.yml up -d
+
+   - name: pause 1 minute to bringup webapp container
+     pause:
+       seconds: 10
+   
+   #- name: start nginx service inside container
+   #  shell: docker exec -it webapp /bin/bash -c "service nginx start" 
+
+
