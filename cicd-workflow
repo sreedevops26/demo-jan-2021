@@ -33,7 +33,7 @@ steps
 {
 script
 {
-if("${params.select-env}" == "qa")
+when("${params.select-env}" == "qa")
 {
 ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/var/lib/jenkins/workspace/cloudtech21-demo/qa-deploy.yml'
 }
@@ -46,7 +46,7 @@ steps
 {
 script
 {
-if("${params.select-env}" == "prod")
+when("${params.select-env}" == "prod")
 {
 ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/var/lib/jenkins/workspace/cloudtech21-demo/prod-deploy.yml'
 }
