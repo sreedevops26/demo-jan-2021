@@ -27,26 +27,26 @@ withDockerRegistry([credentialsId: 'docker-creds',  url: 'https://index.docker.i
 }
 }
 }
-/*stage('deploy app on qa')
+stage('deploy app on qa')
 {
 steps
 {
 script
 {
-when("${params.select-env}" == "qa")
+if("${params.select-env}" == "qa")
 {
 ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/var/lib/jenkins/workspace/cloudtech21-demo/qa-deploy.yml'
 }
 }
 }
-}*/
+}
 stage('deploy app on prod')
 {
 steps
 {
 script
 {
-when("${params.select-env}" == "prod")
+if("${params.select-env}" == "prod")
 {
 ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/var/lib/jenkins/workspace/cloudtech21-demo/prod-deploy.yml'
 }
