@@ -35,7 +35,8 @@ script
 {
 if("${params.select-env}" == "qa")
 {
-sh "echo $select-env"
+sh "cat /dev/null > /etc/ansible/roles/demo21/vars/main.yml
+sh "echo env: $select-env"
 //ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/var/lib/jenkins/workspace/cloudtech21-demo/qa-deploy.yml'
 }
 }
@@ -54,6 +55,12 @@ ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, i
 }
 }
 }*/
+stage('Run ansible playbook on respective env to deploy app')
+{
+steps
+{
+ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/roles/demo21/tests/hosts.ini', playbook: '/etc/ansible/roles/demo21/tests/$env-deploy.yml'
 }
 }
-
+}
+}
