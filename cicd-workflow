@@ -35,7 +35,7 @@ script
 {
 if("${params.select-env}" == "qa")
 {
-echo 'hello $select-env'
+sh "echo $select-env"
 //ansiblePlaybook credentialsId: 'ansi-ssh-creds', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: '/var/lib/jenkins/workspace/cloudtech21-demo/qa-deploy.yml'
 }
 }
